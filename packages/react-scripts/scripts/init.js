@@ -19,7 +19,6 @@ const path = require('path')
 const chalk = require('chalk')
 const execSync = require('child_process').execSync
 const spawn = require('react-dev-utils/crossSpawn')
-const { defaultBrowsers } = require('react-dev-utils/browsersHelper')
 const os = require('os')
 
 function isInGitRepository() {
@@ -92,8 +91,6 @@ module.exports = function(appPath, appName, verbose, originalDirectory, template
     test: 'react-scripts test --env=jsdom',
     eject: 'react-scripts eject'
   }
-
-  appPackage.browserslist = defaultBrowsers
 
   fs.writeFileSync(path.join(appPath, 'package.json'), JSON.stringify(appPackage, null, 2) + os.EOL)
 
