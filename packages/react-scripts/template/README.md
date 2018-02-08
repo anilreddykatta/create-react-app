@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md).
+You can find the most recent version of this guide [here](https://github.com/facebook/create-react-app/blob/master/packages/copart-custom-scripts/template/README.md).
 
 ## Table of Contents
 
@@ -111,17 +111,17 @@ You can find the most recent version of this guide [here](https://github.com/fac
 Create React App is divided into two packages:
 
 * `create-react-app` is a global command-line utility that you use to create new projects.
-* `react-scripts` is a development dependency in the generated projects (including this one).
+* `copart-custom-scripts` is a development dependency in the generated projects (including this one).
 
-You almost never need to update `create-react-app` itself: it delegates all the setup to `react-scripts`.
+You almost never need to update `create-react-app` itself: it delegates all the setup to `copart-custom-scripts`.
 
-When you run `create-react-app`, it always creates the project with the latest version of `react-scripts` so you’ll get all the new features and improvements in newly created apps automatically.
+When you run `create-react-app`, it always creates the project with the latest version of `copart-custom-scripts` so you’ll get all the new features and improvements in newly created apps automatically.
 
-To update an existing project to a new version of `react-scripts`, [open the changelog](https://github.com/facebook/create-react-app/blob/master/CHANGELOG.md), find the version you’re currently on (check `package.json` in this folder if you’re not sure), and apply the migration instructions for the newer versions.
+To update an existing project to a new version of `copart-custom-scripts`, [open the changelog](https://github.com/facebook/create-react-app/blob/master/CHANGELOG.md), find the version you’re currently on (check `package.json` in this folder if you’re not sure), and apply the migration instructions for the newer versions.
 
-In most cases bumping the `react-scripts` version in `package.json` and running `npm install` in this folder should be enough, but it’s good to consult the [changelog](https://github.com/facebook/create-react-app/blob/master/CHANGELOG.md) for potential breaking changes.
+In most cases bumping the `copart-custom-scripts` version in `package.json` and running `npm install` in this folder should be enough, but it’s good to consult the [changelog](https://github.com/facebook/create-react-app/blob/master/CHANGELOG.md) for potential breaking changes.
 
-We commit to keeping the breaking changes minimal so you can upgrade `react-scripts` painlessly.
+We commit to keeping the breaking changes minimal so you can upgrade `copart-custom-scripts` painlessly.
 
 ## Sending Feedback
 
@@ -239,7 +239,7 @@ To configure the syntax highlighting in your favorite text editor, head to the [
 
 ## Displaying Lint Output in the Editor
 
->Note: this feature is available with `react-scripts@0.2.0` and higher.<br>
+>Note: this feature is available with `copart-custom-scripts@0.2.0` and higher.<br>
 >It also only works with npm 3 or higher.
 
 Some editors, including Sublime Text, Atom, and Visual Studio Code, provide plugins for ESLint.
@@ -332,8 +332,8 @@ Add the following line to `scripts` section:
 ```diff
   "scripts": {
 +   "precommit": "lint-staged",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "copart-custom-scripts start",
+    "build": "copart-custom-scripts build",
 ```
 
 Next we add a 'lint-staged' field to the `package.json`, for example:
@@ -619,9 +619,9 @@ Then in `package.json`, add the following lines to `scripts`:
    "scripts": {
 +    "build-css": "node-sass-chokidar src/ -o src/",
 +    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-     "start": "react-scripts start",
-     "build": "react-scripts build",
-     "test": "react-scripts test --env=jsdom",
+     "start": "copart-custom-scripts start",
+     "build": "copart-custom-scripts build",
+     "test": "copart-custom-scripts test --env=jsdom",
 ```
 
 >Note: To use a different preprocessor, replace `build-css` and `watch-css` commands according to your preprocessor’s documentation.
@@ -664,14 +664,14 @@ Then we can change `start` and `build` scripts to include the CSS preprocessor c
    "scripts": {
      "build-css": "node-sass-chokidar src/ -o src/",
      "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
--    "start": "react-scripts start",
--    "build": "react-scripts build",
-+    "start-js": "react-scripts start",
+-    "start": "copart-custom-scripts start",
+-    "build": "copart-custom-scripts build",
++    "start-js": "copart-custom-scripts start",
 +    "start": "npm-run-all -p watch-css start-js",
-+    "build-js": "react-scripts build",
++    "build-js": "copart-custom-scripts build",
 +    "build": "npm-run-all build-css build-js",
-     "test": "react-scripts test --env=jsdom",
-     "eject": "react-scripts eject"
+     "test": "copart-custom-scripts test --env=jsdom",
+     "eject": "copart-custom-scripts eject"
    }
 ```
 
@@ -732,7 +732,7 @@ An alternative way of handling static assets is described in the next section.
 
 ## Adding GraphQL files
 
-> Note: this feature is available with react-scripts@2.0.0 and higher.
+> Note: this feature is available with copart-custom-scripts@2.0.0 and higher.
 
 If you are using GraphQL, you can **`import` GraphQL files in a JavaScript module**.
 
@@ -760,7 +760,7 @@ console.log(query);
 
 ## Using the `public` Folder
 
->Note: this feature is available with `react-scripts@0.5.0` and higher.
+>Note: this feature is available with `copart-custom-scripts@0.5.0` and higher.
 
 ### Changing the HTML
 
@@ -921,7 +921,7 @@ Note that [you may need to configure your production server to support client-si
 
 ## Adding Custom Environment Variables
 
->Note: this feature is available with `react-scripts@0.2.3` and higher.
+>Note: this feature is available with `copart-custom-scripts@0.2.3` and higher.
 
 Your project can consume variables declared in your environment as if they were declared locally in your JS files. By
 default you will have `NODE_ENV` defined for you, and any other environment variables starting with
@@ -984,7 +984,7 @@ When you compile the app with `npm run build`, the minification step will strip 
 
 ### Referencing Environment Variables in the HTML
 
->Note: this feature is available with `react-scripts@0.9.0` and higher.
+>Note: this feature is available with `copart-custom-scripts@0.9.0` and higher.
 
 You can also access the environment variables starting with `REACT_APP_` in the `public/index.html`. For example:
 
@@ -1024,7 +1024,7 @@ REACT_APP_SECRET_CODE=abcdef npm start
 
 ### Adding Development Environment Variables In `.env`
 
->Note: this feature is available with `react-scripts@0.5.0` and higher.
+>Note: this feature is available with `copart-custom-scripts@0.5.0` and higher.
 
 To define permanent environment variables, create a file called `.env` in the root of your project:
 
@@ -1037,7 +1037,7 @@ REACT_APP_SECRET_CODE=abcdef
 
 #### What other `.env` files can be used?
 
->Note: this feature is **available with `react-scripts@1.0.0` and higher**.
+>Note: this feature is **available with `copart-custom-scripts@1.0.0` and higher**.
 
 * `.env`: Default.
 * `.env.local`: Local overrides. **This file is loaded for all environments except test.**
@@ -1058,7 +1058,7 @@ these defined as well. Consult their documentation how to do this. For example, 
 
 #### Expanding Environment Variables In `.env`
 
->Note: this feature is available with `react-scripts@1.1.0` and higher.
+>Note: this feature is available with `copart-custom-scripts@1.1.0` and higher.
 
 Expand variables already on your machine for use in your `.env` file (using [dotenv-expand](https://github.com/motdotla/dotenv-expand)).
 
@@ -1121,7 +1121,7 @@ You can find the companion GitHub repository [here](https://github.com/fullstack
 
 ## Proxying API Requests in Development
 
->Note: this feature is available with `react-scripts@0.2.3` and higher.
+>Note: this feature is available with `copart-custom-scripts@0.2.3` and higher.
 
 People often serve the front-end React app from the same host and port as their backend implementation.<br>
 For example, a production setup might look like this after the app is deployed:
@@ -1185,7 +1185,7 @@ We don’t recommend this approach.
 
 ### Configuring the Proxy Manually
 
->Note: this feature is available with `react-scripts@1.0.0` and higher.
+>Note: this feature is available with `copart-custom-scripts@1.0.0` and higher.
 
 If the `proxy` option is **not** flexible enough for you, you can specify an object in the following form (in `package.json`).<br>
 You may also specify any configuration value [`http-proxy-middleware`](https://github.com/chimurai/http-proxy-middleware#options) or [`http-proxy`](https://github.com/nodejitsu/node-http-proxy#options) supports.
@@ -1273,7 +1273,7 @@ Either way, you can proxy WebSocket requests manually in `package.json`:
 
 ## Using HTTPS in Development
 
->Note: this feature is available with `react-scripts@0.4.0` and higher.
+>Note: this feature is available with `copart-custom-scripts@0.4.0` and higher.
 
 You may require the dev server to serve pages over HTTPS. One particular case where this could be useful is when using [the "proxy" feature](#proxying-api-requests-in-development) to proxy requests to an API server when that API server is itself serving HTTPS.
 
@@ -1344,7 +1344,7 @@ Then, on the server, you can replace `__SERVER_DATA__` with a JSON of real data 
 
 ## Running Tests
 
->Note: this feature is available with `react-scripts@0.3.0` and higher.<br>
+>Note: this feature is available with `copart-custom-scripts@0.3.0` and higher.<br>
 >[Read the migration guide to learn how to enable it in older projects!](https://github.com/facebook/create-react-app/blob/master/CHANGELOG.md#migrating-from-023-to-030)
 
 Create React App uses [Jest](https://facebook.github.io/jest/) as its test runner. To prepare for this integration, we did a [major revamp](https://facebook.github.io/jest/blog/2016/09/01/jest-15.html) of Jest so if you heard bad things about it years ago, give it another try.
@@ -1521,7 +1521,7 @@ and then use them in your tests like you normally do.
 
 ### Initializing Test Environment
 
->Note: this feature is available with `react-scripts@0.4.0` and higher.
+>Note: this feature is available with `copart-custom-scripts@0.4.0` and higher.
 
 If your app uses a browser API that you need to mock in your tests or if you just need a global setup before running your tests, add a `src/setupTests.js` to your project. It will be automatically executed before running your tests.
 
@@ -1671,19 +1671,19 @@ By default, the `package.json` of the generated project looks like this:
 
 ```js
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom"
+    "start": "copart-custom-scripts start",
+    "build": "copart-custom-scripts build",
+    "test": "copart-custom-scripts test --env=jsdom"
 ```
 
 If you know that none of your tests depend on [jsdom](https://github.com/tmpvar/jsdom), you can safely remove `--env=jsdom`, and your tests will run faster:
 
 ```diff
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
--   "test": "react-scripts test --env=jsdom"
-+   "test": "react-scripts test"
+    "start": "copart-custom-scripts start",
+    "build": "copart-custom-scripts build",
+-   "test": "copart-custom-scripts test --env=jsdom"
++   "test": "copart-custom-scripts test"
 ```
 
 To help you make up your mind, here is a list of APIs that **need jsdom**:
@@ -1721,7 +1721,7 @@ There are various ways to setup a debugger for your Jest tests. We cover debuggi
 Add the following to the `scripts` section in your project's `package.json`
 ```json
 "scripts": {
-    "test:debug": "react-scripts --inspect-brk test --runInBand --env=jsdom"
+    "test:debug": "copart-custom-scripts --inspect-brk test --runInBand --env=jsdom"
   }
 ```
 Place `debugger;` statements in any test and run:
@@ -1753,7 +1753,7 @@ Use the following [`launch.json`](https://code.visualstudio.com/docs/editor/debu
       "name": "Debug CRA Tests",
       "type": "node",
       "request": "launch",
-      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/copart-custom-scripts",
       "args": [
         "test",
         "--runInBand",
@@ -1833,7 +1833,7 @@ Then, add these scripts to your `package.json`:
    "scripts": {
 +    "styleguide": "styleguidist server",
 +    "styleguide:build": "styleguidist build",
-     "start": "react-scripts start",
+     "start": "copart-custom-scripts start",
 ```
 
 Then, run the following command inside your app’s directory:
@@ -1851,7 +1851,7 @@ Learn more about React Styleguidist:
 
 ## Sharing Components in a Monorepo
 
->Note: this feature is available with `react-scripts@2.0.0` and higher.
+>Note: this feature is available with `copart-custom-scripts@2.0.0` and higher.
 
 A typical monorepo folder structure looks like this:
 ```
@@ -1876,13 +1876,13 @@ monorepo/
   app1/
     package.json:
       "dependencies": ["@myorg/comp1": ">=0.0.0", "react": "^16.2.0"],
-      "devDependencies": ["react-scripts": "2.0.0"]
+      "devDependencies": ["copart-custom-scripts": "2.0.0"]
     src/
       app.js: import comp1 from '@myorg/comp1';
   app2/
     package.json:
       "dependencies": ["@myorg/comp1": ">=0.0.0", "react": "^16.2.0"],
-      "devDependencies": ["react-scripts": "2.0.0"]
+      "devDependencies": ["copart-custom-scripts": "2.0.0"]
     src/
       app.js: import comp1 from '@myorg/comp1';
   comp1/
@@ -1906,11 +1906,11 @@ monorepo/
 
 ### CRA Apps in a Monorepo
 * CRA apps in a monorepo are just a standard CRA app, they use the same react-script scripts.
-* However, when you use react-scripts for an app in a monorepo, all packages in the monorepo are treated as app sources -- they are watched, linted, transpiled, and tested in the same way as if they were part of the app itself.
+* However, when you use copart-custom-scripts for an app in a monorepo, all packages in the monorepo are treated as app sources -- they are watched, linted, transpiled, and tested in the same way as if they were part of the app itself.
 * Without this functionality, each package would need its own build/test/etc functionality and it would be challenging to link all of these together.
 
 ### Lerna and Publishing
-[Lerna](https://github.com/lerna/lerna) is a popular tool for managing monorepos.  Lerna can be configured to use yarn workspaces, so it will work with the monorepo structure above.  It's important to note that while lerna helps publish various packages in a monorepo, react-scripts does nothing to help publish a component to npm.  A component which uses JSX or ES6+ features would need to be built by another tool before it can be published to npm.  See [publishing components to npm](#publishing-components-to-npm) for more info.
+[Lerna](https://github.com/lerna/lerna) is a popular tool for managing monorepos.  Lerna can be configured to use yarn workspaces, so it will work with the monorepo structure above.  It's important to note that while lerna helps publish various packages in a monorepo, copart-custom-scripts does nothing to help publish a component to npm.  A component which uses JSX or ES6+ features would need to be built by another tool before it can be published to npm.  See [publishing components to npm](#publishing-components-to-npm) for more info.
 
 ## Publishing Components to npm
 
@@ -2052,9 +2052,9 @@ Then in `package.json`, add the following line to `scripts`:
 ```diff
    "scripts": {
 +    "analyze": "source-map-explorer build/static/js/main.*",
-     "start": "react-scripts start",
-     "build": "react-scripts build",
-     "test": "react-scripts test --env=jsdom",
+     "start": "copart-custom-scripts start",
+     "build": "copart-custom-scripts build",
+     "test": "copart-custom-scripts test --env=jsdom",
 ```
 
 Then to analyze the bundle run the production build then run the analyze
@@ -2186,7 +2186,7 @@ For example:
 
 #### Serving the Same Build from Different Paths
 
->Note: this feature is available with `react-scripts@0.9.0` and higher.
+>Note: this feature is available with `copart-custom-scripts@0.9.0` and higher.
 
 If you are not using the HTML5 `pushState` history API or not using client-side routing at all, it is unnecessary to specify the URL from which your app will be served. Instead, you can put this in your `package.json`:
 
@@ -2277,7 +2277,7 @@ For more information see [Add Firebase to your JavaScript Project](https://fireb
 
 ### [GitHub Pages](https://pages.github.com/)
 
->Note: this feature is available with `react-scripts@0.2.0` and higher.
+>Note: this feature is available with `copart-custom-scripts@0.2.0` and higher.
 
 #### Step 1: Add `homepage` to `package.json`
 
@@ -2325,8 +2325,8 @@ Add the following scripts in your `package.json`:
   "scripts": {
 +   "predeploy": "npm run build",
 +   "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "copart-custom-scripts start",
+    "build": "copart-custom-scripts build",
 ```
 
 The `predeploy` script will run automatically before `deploy` is run.
@@ -2512,7 +2512,7 @@ If none of these solutions help please leave a comment [in this thread](https://
 
 ### `npm test` hangs on macOS Sierra
 
-If you run `npm test` and the console gets stuck after printing `react-scripts test --env=jsdom` to the console there might be a problem with your [Watchman](https://facebook.github.io/watchman/) installation as described in [facebook/create-react-app#713](https://github.com/facebook/create-react-app/issues/713).
+If you run `npm test` and the console gets stuck after printing `copart-custom-scripts test --env=jsdom` to the console there might be a problem with your [Watchman](https://facebook.github.io/watchman/) installation as described in [facebook/create-react-app#713](https://github.com/facebook/create-react-app/issues/713).
 
 We recommend deleting `node_modules` in your project and running `npm install` (or `yarn` if you use it) first. If it doesn't help, you can try one of the numerous workarounds mentioned in these issues:
 
@@ -2591,8 +2591,8 @@ In the future, we might start automatically compiling incompatible third-party m
 
 ## Alternatives to Ejecting
 
-[Ejecting](#npm-run-eject) lets you customize anything, but from that point on you have to maintain the configuration and scripts yourself. This can be daunting if you have many similar projects. In such cases instead of ejecting we recommend to *fork* `react-scripts` and any other packages you need. [This article](https://auth0.com/blog/how-to-configure-create-react-app/) dives into how to do it in depth. You can find more discussion in [this issue](https://github.com/facebook/create-react-app/issues/682).
+[Ejecting](#npm-run-eject) lets you customize anything, but from that point on you have to maintain the configuration and scripts yourself. This can be daunting if you have many similar projects. In such cases instead of ejecting we recommend to *fork* `copart-custom-scripts` and any other packages you need. [This article](https://auth0.com/blog/how-to-configure-create-react-app/) dives into how to do it in depth. You can find more discussion in [this issue](https://github.com/facebook/create-react-app/issues/682).
 
 ## Something Missing?
 
-If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebook/create-react-app/issues) or [contribute some!](https://github.com/facebook/create-react-app/edit/master/packages/react-scripts/template/README.md)
+If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebook/create-react-app/issues) or [contribute some!](https://github.com/facebook/create-react-app/edit/master/packages/copart-custom-scripts/template/README.md)

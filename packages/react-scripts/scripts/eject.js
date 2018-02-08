@@ -150,7 +150,7 @@ inquirer
     console.log(cyan('Updating the dependencies'));
     const ownPackageName = ownPackage.name;
     if (appPackage.devDependencies) {
-      // We used to put react-scripts in devDependencies
+      // We used to put copart-custom-scripts in devDependencies
       if (appPackage.devDependencies[ownPackageName]) {
         console.log(`  Removing ${cyan(ownPackageName)} from devDependencies`);
         delete appPackage.devDependencies[ownPackageName];
@@ -214,7 +214,7 @@ inquirer
     // "Don't destroy what isn't ours"
     if (ownPath.indexOf(appPath) === 0) {
       try {
-        // remove react-scripts and react-scripts binaries from app node_modules
+        // remove copart-custom-scripts and copart-custom-scripts binaries from app node_modules
         Object.keys(ownPackage.bin).forEach(binKey => {
           fs.removeSync(path.join(appPath, 'node_modules', '.bin', binKey));
         });
@@ -229,12 +229,12 @@ inquirer
         appPath,
         'node_modules',
         '.bin',
-        'react-scripts.cmd'
+        'copart-custom-scripts.cmd'
       );
       let windowsCmdFileContent;
       if (process.platform === 'win32') {
         // https://github.com/facebook/create-react-app/pull/3806#issuecomment-357781035
-        // Yarn is diligent about cleaning up after itself, but this causes the react-scripts.cmd file
+        // Yarn is diligent about cleaning up after itself, but this causes the copart-custom-scripts.cmd file
         // to be deleted while it is running. This trips Windows up after the eject completes.
         // We'll read the batch file and later "write it back" to match npm behavior.
         try {

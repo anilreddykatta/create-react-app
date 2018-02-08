@@ -112,9 +112,9 @@ module.exports = {
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
       // @remove-on-eject-begin
-      // Resolve Babel runtime relative to react-scripts.
+      // Resolve Babel runtime relative to copart-custom-scripts.
       // It usually still works on npm 3 without this but it would be
-      // unfortunate to rely on, as react-scripts could be symlinked,
+      // unfortunate to rely on, as copart-custom-scripts could be symlinked,
       // and thus @babel/runtime might not be resolvable from the source.
       '@babel/runtime': path.dirname(require.resolve('@babel/runtime/package.json')),
       // @remove-on-eject-end
@@ -345,7 +345,7 @@ module.exports = {
       // Don't precache sourcemaps (they're large) and build asset manifest:
       staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/]
       // `navigateFallback` and `navigateFallbackWhitelist` are disabled by default; see
-      // https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#service-worker-considerations
+      // https://github.com/facebook/create-react-app/blob/master/packages/copart-custom-scripts/template/README.md#service-worker-considerations
       // navigateFallback: publicUrl + '/index.html',
       // navigateFallbackWhitelist: [/^(?!\/__).*/],
     }),

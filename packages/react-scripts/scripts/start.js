@@ -45,6 +45,8 @@ const useYarn = fs.existsSync(paths.yarnLockFile)
 const isInteractive = process.stdout.isTTY
 
 // Warn and crash if required files are missing
+console.log([paths.appHtml, paths.appIndexJs])
+console.log(paths)
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1)
 }
@@ -82,6 +84,7 @@ choosePort(HOST, DEFAULT_PORT)
     const serverConfig = createDevServerConfig(proxyConfig, urls.lanUrlForConfig)
     const devServer = new WebpackDevServer(compiler, serverConfig)
     // Launch WebpackDevServer.
+    console.log('INSIDE START')
     devServer.listen(port, HOST, err => {
       if (err) {
         return console.log(err)
@@ -101,6 +104,7 @@ choosePort(HOST, DEFAULT_PORT)
   })
   .catch(err => {
     if (err && err.message) {
+      console.log(err)
       console.log(err.message)
     }
     process.exit(1)

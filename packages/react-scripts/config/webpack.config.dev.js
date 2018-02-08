@@ -107,9 +107,9 @@ module.exports = {
     extensions: ['.js', '.json'],
     alias: {
       // @remove-on-eject-begin
-      // Resolve Babel runtime relative to react-scripts.
+      // Resolve Babel runtime relative to copart-custom-scripts.
       // It usually still works on npm 3 without this but it would be
-      // unfortunate to rely on, as react-scripts could be symlinked,
+      // unfortunate to rely on, as copart-custom-scripts could be symlinked,
       // and thus @babel/runtime might not be resolvable from the source.
       '@babel/runtime': path.dirname(require.resolve('@babel/runtime/package.json')),
       // @remove-on-eject-end

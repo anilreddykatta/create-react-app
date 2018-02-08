@@ -80,17 +80,21 @@ module.exports = function(appPath, appName, verbose, originalDirectory, template
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'))
 
   // Copy over some of the devDependencies
+  console.log('****************** INSIDE INIT ****************************')
   appPackage.dependencies = appPackage.dependencies || {}
   appPackage.dependencies['copart-components'] =
     'git+https://github.com/copartit/ops-portal-component-library.git#aeb183332c4cf72ff4197b6b51c604122111967d'
 
   // Setup the script rules
   appPackage.scripts = {
-    start: 'react-scripts start',
-    build: 'react-scripts build',
-    test: 'react-scripts test --env=jsdom',
-    eject: 'react-scripts eject'
+    start: 'copart-custom-scripts start',
+    build: 'copart-custom-scripts build',
+    test: 'copart-custom-scripts test --env=jsdom',
+    eject: 'copart-custom-scripts eject'
   }
+  console.log(appPackage)
+  console.log(JSON.stringify(appPackage))
+  console.log('****************** END INIT ****************************')
 
   fs.writeFileSync(path.join(appPath, 'package.json'), JSON.stringify(appPackage, null, 2) + os.EOL)
 
@@ -148,7 +152,7 @@ module.exports = function(appPath, appName, verbose, originalDirectory, template
   }
 
   // Install react and react-dom for backward compatibility with old CRA cli
-  // which doesn't install react and react-dom along with react-scripts
+  // which doesn't install react and react-dom along with copart-custom-scripts
   // or template is presetend (via --internal-testing-template)
   if (!isReactInstalled(appPackage) || template) {
     console.log(`Installing react and react-dom using ${command}...`)

@@ -1,6 +1,6 @@
 {
   "name": "copart-custom-scripts",
-  "version": "0.0.6",
+  "version": "0.0.11",
   "description": "Configuration and scripts for Create React App.",
   "repository": "anilreddykatta/create-react-app",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "utils"
   ],
   "bin": {
-    "react-scripts": "./bin/react-scripts.js"
+    "copart-custom-scripts": "./bin/copart-custom-scripts.js"
   },
   "dependencies": {
     "@babel/core": "7.0.0-beta.38",
@@ -28,7 +28,7 @@
     "babel-eslint": "8.2.1",
     "babel-jest": "22.1.0",
     "babel-loader": "8.0.0-beta.0",
-    "babel-plugin-named-asset-import": "^0.1.0",
+    "babel-plugin-named-asset-import": "^0.0.0",
     "babel-preset-react-app": "^3.1.1",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "chalk": "2.3.0",
